@@ -1,0 +1,12 @@
+language: objective-c
+osx_image: xcode11.1
+cache: cocoapods
+podfile: Podfile
+before_install:
+  - gem install bundler -v 2.1.1
+  - gem install cocoapods
+  - gem install xcpretty
+script:
+  - set -o pipefail
+  - pod install
+  - xcodebuild -workspace KeysHiddenTest.xcworkspace -scheme "KeysHiddenTest" -destination "name=iPhone 11 Pro" -configuration Debug ONLY_ACTIVE_ARCH=NO | xcpretty
