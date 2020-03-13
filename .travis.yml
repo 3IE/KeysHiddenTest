@@ -7,9 +7,9 @@ before_install:
   - gem install cocoapods
   - gem install cocoapods-keys
   - gem install xcpretty
+  - pod keys set ApiKey $APIKEY
+  - pod keys set TestKey $TESTKEY
 script:
   - set -o pipefail
-  - bundle exec pod keys set ApiKey $APIKEY
-  - bundle exec pod keys set TestKey $TESTKEY
   - pod install
   - xcodebuild -workspace KeysHiddenTest.xcworkspace -scheme "KeysHiddenTest" -destination "name=iPhone 11 Pro" -configuration Debug ONLY_ACTIVE_ARCH=NO | xcpretty
