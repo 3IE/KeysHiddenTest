@@ -5,6 +5,7 @@ podfile: Podfile
 before_install:
   - gem install bundler -v 2.1.1
   - gem install cocoapods
+  - gem install cocoapods-keys
   - gem install xcpretty
 script:
   - set -o pipefail
