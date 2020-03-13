@@ -2,6 +2,9 @@ language: objective-c
 osx_image: xcode11.1
 cache: cocoapods
 podfile: Podfile
+before:
+  - bundle exec pod keys set ApiKey $APIKEY
+  - bundle exec pod keys set TestKey $TESTKEY
 before_install:
   - gem install bundler -v 2.1.1
   - gem install cocoapods
