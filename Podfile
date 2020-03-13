@@ -13,5 +13,4 @@ plugin 'cocoapods-keys', {
   :project => "KeysHiddenTest",
   :keys => [
     "ApiKey",
-    "TestKey",
   ]}

@@ -3,13 +3,16 @@ osx_image: xcode11.1
 cache: cocoapods
 podfile: Podfile
 before_install:
-  - gem install bundler -v 2.1.1
-  - gem install cocoapods
-  - gem install cocoapods-keys
-  - gem install xcpretty
-  - pod keys set ApiKey $APIKEY
-  - pod keys set TestKey $TESTKEY
+- gem install bundler -v 2.1.1
+- gem install cocoapods
+- gem install cocoapods-keys
+- gem install xcpretty
+- pod keys set ApiKey $APIKEY
 script:
-  - set -o pipefail
-  - pod install
-  - xcodebuild -workspace KeysHiddenTest.xcworkspace -scheme "KeysHiddenTest" -destination "name=iPhone 11 Pro" -configuration Debug ONLY_ACTIVE_ARCH=NO | xcpretty
+- set -o pipefail
+- pod install
+- xcodebuild -workspace KeysHiddenTest.xcworkspace -scheme "KeysHiddenTest" -destination
+  "name=iPhone 11 Pro" -configuration Debug ONLY_ACTIVE_ARCH=NO | xcpretty
+env:
+  global:
+    secure: xlb6KR/1cYrkK30XNOegpp3jX4JdLs34Tz0S0fCLhNqifiMjUF977NBuLQGW8iZiLeuCSWpSx9Ok++B9Hk9Lz8YRiQ6T7/d39N+tUSPb038C+iaeqxd3/QP7y8zi973UbZJiblBbdrIAR2B7lw++/cHAg7csXviq0UpEvq16GlqQsPXlhNW+/1HQcPKH+PM/1JJ/d4m7FOTXxu1oiCCPi6cFXcAyAc005sCL7ngstDscTTh8K0T5ABZ6XbdSH2kOI1f2TmpSM9I8DMerFUfdwgGQG1N18kU6wfFCMC6lcedn/DK1iq6oa29zK4K+U5W8SiiAG5xDixCvYt/5JJYwsohEZftxUGBktW/5k12K/YwGzmman3sWSGs/h2eTVrzpCIvx4dzX9GdiYFwSUfVJcwl1G9hrEcBbDCP/iX9+yWY8BLy+p+ZFV+e9PoZ6TkV6L+m4FAPiTHwcUd9dwLDAwgn+zp8AficDsb2ei1j6GeMlNNhyU5DOQI8Z0+Hzd/wRa2wj0oM3atqqqLWq5TAevbUC1HGxRbpAzFg4tEx6qy6fXPWIemlH+6tOo/GqrxyEYyV12PKgNJtb/JUT+y6gwF+SgxSLs4OTEa7rzTrwFtlOy+PXgqlILz4qsoT2vQ61G/OxJfAxTgD05Br+QpDeYRZcX9H0QLh4EQRouxXPwJU=
